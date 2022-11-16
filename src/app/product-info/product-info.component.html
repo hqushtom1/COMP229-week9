@@ -1,0 +1,62 @@
+<p>product-info works!</p>
+{{productName}}
+
+
+
+
+<h2>Results:</h2>
+The templete values are: {{productObj | json}}
+<br>
+The submited values are: {{productSubmit | json}}
+<br>
+Is the form valid? {{proForm.form.valid}}
+<br>
+Is the form have been tuched by the user? {{proForm.touched}}
+<br>
+Is any value in the form has been changed? {{proForm.dirty}}
+<br>
+{{pro_name.errors | json}}
+<br>
+<form #proForm="ngForm" (ngSubmit)="onSubmit(proForm)">
+    <div class="from-group">
+        <label> Product Name</label>
+
+        <div *ngIf="pro_name.invalid">
+            <div class="alert"> Error: Product name is invalid</div>
+        </div>
+
+        <div *ngIf="pro_name.errors?.['required']">
+            <div class="alert"> Error: Product name is required</div>
+        </div>
+
+        <input type="text" name="name" [(ngModel)]="productObj.name" class="form-control" minlength="3" maxlength="6"
+            pattern="[a-zA-Z ]*" required placeholder="Enter the product name" #pro_name="ngModel"
+            [class.text-alert]="!pro_name.valid">
+
+    </div>
+    <div class="from-group">
+        <label> Product type</label>
+        <select name="type" class="form-control" [(ngModel)]="productObj.type">
+            <option value="">Select product type</option>
+            <option *ngFor="let t of productType" [value]="t">{{t}}</option>
+
+        </select>
+    </div>
+    <div class="from-group">
+        <label> Product Price</label>
+        <input type="text" name="price" value="" [(ngModel)]="productObj.price" class="form-control"
+            placeholder="Enter the product price" required>
+    </div>
+    <div class="form-group">
+        <input type="submit" name="add" value="Add product" class="btn btn-default" [disabled]="!proForm.form.valid" />
+    </div>
+</form>
+
+
+
+<ul [ngSwitch]="test">
+    <li *ngSwitchCase="true"> Type1</li>
+
+    <li *ngSwitchCase="false"> Type2</li>
+    <li *ngSwitchCase="true"> Type3</li>
+</ul>
