@@ -1,0 +1,22 @@
+<p>products works!</p>
+
+
+
+{{products |json }}
+
+<table class="table"> 
+    <tr> 
+        <td>id</td>
+        <td>year</td>
+        <td>make</td>
+        <td>model</td>
+        <td>vin</td>
+    </tr>
+    <tr *ngFor="let p of products">
+        <td>{{p.id}}</td>
+        <td>{{p.year}}</td>
+        <td>{{p.make}}</td>
+        <td>{{p.model}}</td>
+        <td>{{p.vin}}</td>
+    </tr>
+</table>

@@ -1,0 +1,17 @@
+<p>login works!</p>
+<div class="row">
+    <div class="col-md-12">
+        <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+            <div class="form-group">
+                <input type="text" name="username" value="" [(ngModel)]="user.userName" class="form-control"
+                    placeholder="Enter your username" />
+            </div>
+            <div class="form-group">
+                <input type="password" name="password" value="" [(ngModel)]="user.password" class="form-control"
+                    placeholder="Enter your password" />
+
+            </div>
+            <button type="submit" class="btn">Login</button>
+        </form>
+    </div>
+</div>

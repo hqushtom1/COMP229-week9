@@ -1,7 +1,17 @@
 <p>header works!</p>
 
 <ul>
-    <li> <a routerLink="/user_list">User List</a></li>
+
+
     <li> <a routerLink="/product_info">Product Info</a>
     </li>
+    <span *ngIf="!login_status">
+        <li> <a routerLink="/login">Login</a></li>
+    </span>
+    <span *ngIf="login_status">
+        <li> <a routerLink="/products">Products</a></li>
+        <li> <a routerLink="/user_list">User List</a></li>
+        <li> <a routerLink="" (click)="logout()">Logout</a></li>
+    </span> 
+
 </ul>
